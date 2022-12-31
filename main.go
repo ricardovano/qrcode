@@ -15,14 +15,18 @@ import (
 func main() {
 	gin.SetMode(gin.ReleaseMode)
 	router := gin.Default()
-	log.Println("gin set mode")
 	gin.SetMode(gin.ReleaseMode)
 	log.Println("Server running on port 3000...")
 	router.GET("/:url", Generate)
+	router.GET("/", Home)
 	err := router.Run("localhost:3000")
 	if err != nil {
 		log.Fatal("router.Run: ", err)
 	}
+}
+
+func Home(c *gin.Context) {
+	c.IndentedJSON(http.StatusOK, gin.H{"message": "OK Status 200"})
 }
 
 func Generate(c *gin.Context) {
