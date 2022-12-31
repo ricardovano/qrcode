@@ -16,8 +16,8 @@ func main() {
 	gin.SetMode(gin.ReleaseMode)
 	router := gin.Default()
 	gin.SetMode(gin.ReleaseMode)
-	router.GET("/generate/:url", Generate)
-	err := router.Run("localhost:3000")
+	router.GET("/:url", Generate)
+	err := router.Run("localhost:8080")
 	if err != nil {
 		log.Fatal("router.Run: ", err)
 	}
