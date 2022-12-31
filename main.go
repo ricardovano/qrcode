@@ -15,9 +15,12 @@ import (
 func main() {
 	gin.SetMode(gin.ReleaseMode)
 	router := gin.Default()
+	log.Println("gin set mode")
 	gin.SetMode(gin.ReleaseMode)
+	log.Println("router GET")
 	router.GET("/:url", Generate)
 	err := router.Run("localhost:3000")
+	log.Println("Server running...")
 	if err != nil {
 		log.Fatal("router.Run: ", err)
 	}
